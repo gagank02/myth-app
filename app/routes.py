@@ -22,13 +22,13 @@ def home():
         print("Page Error")
         deity_page = wikipedia.page(deity, auto_suggest=False)
         query = deity_page.title
-
+    print(deity_page.title)
 
     try:
-        summary = wikipedia.summary(query, sentences=3)
+        summary = wikipedia.summary(query, sentences=3, auto_suggest=False)
     except wikipedia.exceptions.DisambiguationError as e:
         print("Disambiguation Error")
-        summary = wikipedia.summary(deity)
+        summary = wikipedia.summary(deity, auto_suggest=False)
         
     try:
         img_path = deity_page.images[0]
