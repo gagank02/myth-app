@@ -10,7 +10,9 @@ def home():
     wikipedia.set_lang("en")
     db_size = len(Name.query.all())
     deity = Name.query.get(random.randint(1, db_size)).name
+    deity = 'Hippona'
     query = deity + ' (mythology)'
+
     if deity == 'Sol':
         query = deity + ' (Norse mythology)'
     print('Query: ' + query)
@@ -20,6 +22,7 @@ def home():
     except wikipedia.exceptions.PageError as e:
         print("Page Error")
         deity_page = wikipedia.page(deity, auto_suggest=False)
+        query = deity_page.title
 
 
     try:
